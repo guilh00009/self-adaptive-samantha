@@ -18,17 +18,30 @@ class Gsm8kTask(Task):
             "meta-llama/Meta-Llama-3-8B-Instruct": (
                 "{% set loop_messages = messages %}"
                 "{% for message in loop_messages %}"
-                "{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>"
-                "\n\n'+ message['content'] | trim + '<|eot_id|>' %}"
+                "{% set content = '\u003c|start_header_id|\u003e' + message['role'] + '\u003c|end_header_id|\u003e"
+                "\n\n'+ message['content'] | trim + '\u003c|eot_id|\u003e' %}"
                 "{% if loop.index0 == 0 %}{% set content = bos_token + content %}"
                 "{% endif %}"
                 "{{ content }}"
                 "{% endfor %}"
                 "{% if add_generation_prompt %}"
-                "{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}"
+                "{{ '\u003c|start_header_id|\u003eassistant\u003c|end_header_id|\u003e\n\n' }}"
                 "{% endif %}"
             ),
             "mistralai/Mistral-7B-Instruct-v0.3": None,
+            "Guilherme34/Reasoner-8B": (
+                "{% set loop_messages = messages %}"
+                "{% for message in loop_messages %}"
+                "{% set content = '\u003c|start_header_id|\u003e' + message['role'] + '\u003c|end_header_id|\u003e"
+                "\n\n'+ message['content'] | trim + '\u003c|eot_id|\u003e' %}"
+                "{% if loop.index0 == 0 %}{% set content = bos_token + content %}"
+                "{% endif %}"
+                "{{ content }}"
+                "{% endfor %}"
+                "{% if add_generation_prompt %}"
+                "{{ '\u003c|start_header_id|\u003eassistant\u003c|end_header_id|\u003e\n\n' }}"
+                "{% endif %}"
+            ),
         }
         self.system_msg = (
             "Below is an instruction that describes a task."

@@ -1,8 +1,7 @@
 base_model:
-  _target_: base_model.samantha
+  _target_: base_model.Samantha
 
-
-base_model_name: samantha
+base_model_name: samanthai8b
   
 # reference_params_results:
 #   - 'saved_models/llama3i8b/gsm8k/learnable_params.pt'

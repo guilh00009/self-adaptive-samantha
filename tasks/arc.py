@@ -16,6 +16,7 @@ class AI2ArcTask(Task):
         self.model_to_template = {
             "meta-llama/Meta-Llama-3-8B-Instruct": LLAMA3_COT,
             "mistralai/Mistral-7B-Instruct-v0.3": None,
+            "Guilherme34/Reasoner-8B": LLAMA3_COT,
         }
         self.system_msg = (
             "The following are multiple choice questions (with answers). "

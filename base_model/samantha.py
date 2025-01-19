@@ -1,12 +1,10 @@
 import os
-
 from .base import BaseModel
 
-
-class samantha(BaseModel):
+class Samantha(BaseModel):
     def __init__(self):
-        self.model_id = "Guilherme34/Samantha-vision-v2-ggufrecommended"
-        self.dec_param_file_n = "samantha-vision-v2-ggufrecommended_decomposed_params.pt"
+        self.model_id = "Guilherme34/Reasoner-8B"
+        self.dec_param_file_n = "samantha_decomposed_params.pt"
 
     def get_model_id(self):
         return self.model_id
